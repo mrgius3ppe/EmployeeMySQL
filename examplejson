@@ -1,0 +1,21 @@
+//post empleados example
+{
+        "numEmpleado": 10006,
+        "fechaNacimiento": "1996-12-12",
+        "nombre": "Jose Guadalupe",
+        "apellidoPaterno": "Hernandez",
+        "apellidoMaterno": "Hernandez",
+        "sexo": "M",
+        "fechaContratacion": "2020-12-05"
+}
+
+//put actualizar
+
+{
+        "fechaNacimiento": "1993-12-12",
+        "nombre": "Maria Guadalupe",
+        "apellidoPaterno": "Corona",
+        "apellidoMaterno": "Santos",
+        "sexo": "F",
+        "fechaContratacion": "2020-08-09"
+ }
