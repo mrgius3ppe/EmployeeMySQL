@@ -6,6 +6,7 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -18,6 +19,7 @@ import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
 @Entity
 @Table(name="dept_emp")
+@IdClass(RelationEmpDpto.class)//se agrega porque tiene llaves compuestas en la relacion 2 id
 public class EmpleadosDepartamento implements Serializable{
 
 	private static final long serialVersionUID = 1L;
@@ -31,13 +33,13 @@ public class EmpleadosDepartamento implements Serializable{
 	private Date fechaFin;
 	
 	@ManyToOne(fetch = FetchType.LAZY,optional = false)
-	@JoinColumn(name = "empleado_id")
+	@JoinColumn(name = "numEmpleado", insertable = false,updatable = false)
 	@JsonProperty(access = Access.WRITE_ONLY)
 	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 	private Empleados empleado;
 	
 	@ManyToOne(fetch = FetchType.LAZY,optional = false)
-	@JoinColumn(name = "departamento_id")
+	@JoinColumn(name = "numDepartamento", insertable = false,updatable = false)
 	@JsonProperty(access = Access.WRITE_ONLY)
 	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 	private Departamentos departamento;

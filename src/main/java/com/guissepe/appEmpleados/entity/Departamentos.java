@@ -18,9 +18,9 @@ public class Departamentos implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@Column(length = 4,nullable = true)
+	@Column(length = 4)
 	private String numDepartamento;
-	@Column(unique = true, length = 40,nullable = true)
+	@Column(unique = true, length = 40)
 	private String nombreDepartamento;
 	
 	@OneToMany(mappedBy = "departamento",cascade = CascadeType.ALL)

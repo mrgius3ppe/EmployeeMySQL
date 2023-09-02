@@ -31,7 +31,7 @@ public class Titulos implements Serializable{
 	private Date fechaFin;
 	
 	@ManyToOne(fetch = FetchType.LAZY,optional = false)
-	@JoinColumn(name = "empleado_id")
+	@JoinColumn(name = "numEmpleado", insertable = false,updatable = false)
 	@JsonProperty(access = Access.WRITE_ONLY)
 	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 	private Empleados empleado;
