@@ -117,7 +117,14 @@ public class EmpleadoDepartamentoController {
 		Map<String, Object> response = new HashMap<>();
 		
 		try {
-			empDepartamentoDao.deleteById(obj);
+			boolean exists = empDepartamentoDao.existsById(obj);
+			if(exists) {
+				empDepartamentoDao.deleteById(obj);
+			}else {
+				response.put("mensaje", "No existe el empdpto en la base de datos.");
+				return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+			}
+			
 		} catch (DataAccessException e) {
 			response.put("mensaje", "Error al eliminar el empdpto de la base de datos");
 			response.put("error", e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
