@@ -7,6 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -17,6 +18,7 @@ import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
 @Entity
 @Table(name="titulos")
+@IdClass(RelationEmpTitulo.class)//se agrega porque tiene llaves compuestas en la relacion 2 id
 public class Titulos implements Serializable{
 
 	private static final long serialVersionUID = 1L;
